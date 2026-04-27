@@ -1,0 +1,423 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================================================
+   PharmacoGenomics — Design System Tokens
+   Warm light theme with semantic status colors
+   ============================================================================= */
+
+@layer base {
+  :root {
+    /* ── Surface palette ──────────────────────────────────────────────── */
+    --bg-canvas: #FAFAF8;
+    --bg-surface: #FFFFFF;
+    --bg-surface-alt: #F3F1EC;
+    --bg-inset: #EDEAE4;
+    --border-default: #E8E6E1;
+    --border-strong: #D4D1CB;
+
+    /* ── Text palette ─────────────────────────────────────────────────── */
+    --text-primary: #1A1916;
+    --text-secondary: #5C5A55;
+    --text-tertiary: #9A9892;
+    --text-link: #1D5FA8;
+    --text-link-hover: #164880;
+
+    /* ── Semantic: Pathogenic / high impact ────────────────────────────── */
+    --status-danger-text: #C8372D;
+    --status-danger-bg: #FDF0EF;
+    --status-danger-border: #F5D0CD;
+
+    /* ── Semantic: Benign / low impact ─────────────────────────────────── */
+    --status-safe-text: #2A7A4B;
+    --status-safe-bg: #F0F7F1;
+    --status-safe-border: #C8E6CF;
+
+    /* ── Semantic: Moderate / VUS ──────────────────────────────────────── */
+    --status-warn-text: #B5720A;
+    --status-warn-bg: #FDF6EC;
+    --status-warn-border: #F0DFC0;
+
+    /* ── Semantic: PGx ────────────────────────────────────────────────── */
+    --status-pgx-text: #5B3FAB;
+    --status-pgx-bg: #F1EEF9;
+    --status-pgx-border: #D8D0F0;
+
+    /* ── Spacing scale (compact, data-dense) ──────────────────────────── */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+
+    /* ── Typography scale ─────────────────────────────────────────────── */
+    --text-caption: 11px;
+    --text-body-sm: 12px;
+    --text-body: 13px;
+    --text-subhead: 15px;
+    --text-section: 18px;
+    --text-page: 24px;
+
+    /* ── Layout ────────────────────────────────────────────────────────── */
+    --sidebar-width: 280px;
+    --topbar-min-height: 120px;
+
+    /* ── Radius ────────────────────────────────────────────────────────── */
+    --radius-sm: 3px;
+    --radius-md: 5px;
+    --radius-lg: 8px;
+
+    /* ── Shadows ───────────────────────────────────────────────────────── */
+    --shadow-card: 0 1px 2px rgba(26, 25, 22, 0.04), 0 0 0 1px var(--border-default);
+    --shadow-elevated: 0 4px 12px rgba(26, 25, 22, 0.06), 0 0 0 1px var(--border-default);
+  }
+}
+
+/* =============================================================================
+   Global resets & base styles
+   ============================================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* =============================================================================
+   Three-zone layout
+   ============================================================================= */
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-areas:
+    "topbar  topbar"
+    "sidebar main";
+  height: 100vh;
+  overflow: hidden;
+}
+
+.zone-topbar {
+  grid-area: topbar;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--space-4) var(--space-6);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.zone-sidebar {
+  grid-area: sidebar;
+  background: var(--bg-surface-alt);
+  border-right: 1px solid var(--border-default);
+  overflow-y: auto;
+  padding: var(--space-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.zone-main {
+  grid-area: main;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-6);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+/* =============================================================================
+   Tabs
+   ============================================================================= */
+
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border-default);
+  margin-bottom: var(--space-4);
+}
+
+.tab-trigger {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.tab-trigger:hover {
+  color: var(--text-primary);
+}
+
+.tab-trigger[data-active="true"] {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+}
+
+/* =============================================================================
+   Labeled field rows (NCBI-style key-value)
+   ============================================================================= */
+
+.field-row {
+  display: flex;
+  align-items: baseline;
+  padding: var(--space-1) 0;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--border-default);
+  font-size: var(--text-body);
+}
+
+.field-row:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  flex-shrink: 0;
+  width: 140px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: var(--text-body-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.field-value {
+  flex: 1;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.field-value.mono {
+  font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+  font-size: var(--text-body-sm);
+  letter-spacing: -0.01em;
+}
+
+/* =============================================================================
+   Status badges (semantic colors)
+   ============================================================================= */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.status-badge--danger {
+  color: var(--status-danger-text);
+  background: var(--status-danger-bg);
+  border: 1px solid var(--status-danger-border);
+}
+
+.status-badge--safe {
+  color: var(--status-safe-text);
+  background: var(--status-safe-bg);
+  border: 1px solid var(--status-safe-border);
+}
+
+.status-badge--warn {
+  color: var(--status-warn-text);
+  background: var(--status-warn-bg);
+  border: 1px solid var(--status-warn-border);
+}
+
+.status-badge--pgx {
+  color: var(--status-pgx-text);
+  background: var(--status-pgx-bg);
+  border: 1px solid var(--status-pgx-border);
+}
+
+/* =============================================================================
+   Panel cards
+   ============================================================================= */
+
+.panel-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: var(--shadow-card);
+}
+
+.panel-card + .panel-card {
+  margin-top: var(--space-3);
+}
+
+.panel-section-title {
+  font-size: var(--text-subhead);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-default);
+}
+
+/* =============================================================================
+   Suggestion chips
+   ============================================================================= */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+  font-size: var(--text-caption);
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  user-select: none;
+}
+
+.chip:hover {
+  background: var(--bg-inset);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.chip[data-active="true"] {
+  background: var(--text-primary);
+  color: var(--bg-surface);
+  border-color: var(--text-primary);
+}
+
+/* =============================================================================
+   Inline error with retry
+   ============================================================================= */
+
+.inline-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--status-danger-bg);
+  border: 1px solid var(--status-danger-border);
+  border-radius: var(--radius-md);
+  color: var(--status-danger-text);
+  font-size: var(--text-body-sm);
+}
+
+.inline-error button {
+  margin-left: auto;
+  padding: 2px var(--space-2);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--status-danger-text);
+  background: transparent;
+  border: 1px solid var(--status-danger-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.inline-error button:hover {
+  background: var(--status-danger-border);
+}
+
+/* =============================================================================
+   Empty state
+   ============================================================================= */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  color: var(--text-tertiary);
+  font-size: var(--text-body);
+  text-align: center;
+}
+
+.empty-state__icon {
+  font-size: 28px;
+  margin-bottom: var(--space-2);
+  opacity: 0.5;
+}
+
+/* =============================================================================
+   Scrollbar styling (WebKit)
+   ============================================================================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* =============================================================================
+   Frequency bar (mini inline visualization)
+   ============================================================================= */
+
+.freq-bar-track {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-inset);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.freq-bar-fill {
+  height: 100%;
+  background: var(--text-link);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* =============================================================================
+   Skeleton animation (used by shadcn Skeleton component)
+   ============================================================================= */
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
