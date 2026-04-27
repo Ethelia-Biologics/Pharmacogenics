@@ -10,7 +10,7 @@ export interface Population {
   continent: string;
   region: string;
   ethnicity_group: string;
-  haplotype_group: string;
+  haplotype_group: string | null;
   description: string;
   created_at: string;
 }
@@ -20,8 +20,8 @@ export interface SubPopulation {
   population_id: string;
   name: string;
   geographic_area: string;
-  linguistic_group: string;
-  sample_size: number;
+  linguistic_group: string | null;
+  sample_size: number | null;
   data_source: string;
   created_at: string;
 }
@@ -55,11 +55,11 @@ export interface Variant {
 export interface PopulationVariantFreq {
   id: string;
   population_id: string;
-  sub_population_id: string;
+  sub_population_id: string | null;
   variant_id: string;
   allele_frequency: number;
   minor_allele_freq: number;
-  sample_count: number;
+  sample_count: number | null;
   data_source: string;
   study_id: string;
 }
@@ -72,7 +72,7 @@ export interface Drug {
   mechanism: string;
   atc_code: string;
   fda_approval_status: string;
-  metabolic_pathway: string;
+  metabolic_pathway: string | null;
 }
 
 export interface DrugGeneInteraction {
@@ -88,7 +88,7 @@ export interface DrugGeneInteraction {
 export interface PopulationDrugResponse {
   id: string;
   population_id: string;
-  sub_population_id: string;
+  sub_population_id: string | null;
   drug_id: string;
   variant_id: string;
   phenotype: string;

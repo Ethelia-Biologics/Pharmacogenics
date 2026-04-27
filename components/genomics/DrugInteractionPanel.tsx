@@ -99,7 +99,7 @@ export function DrugInteractionPanel({ interactions, isLoading, error }: DrugInt
   );
 }
 
-function Badge({ config, fallback }: { config?: any; fallback: string }) {
+function Badge({ config, fallback }: { config?: { bg: string; color: string; borderColor: string; label?: string }; fallback: string }) {
   if (!config) {
     return (
       <span className="px-2 py-0.5 bg-bg-surface-alt border border-border-default rounded text-[10px] font-bold text-text-tertiary uppercase">

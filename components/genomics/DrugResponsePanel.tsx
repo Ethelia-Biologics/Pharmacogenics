@@ -90,7 +90,7 @@ export function DrugResponsePanel({ responses, isLoading, error }: DrugResponseP
   );
 }
 
-function ResponseRow({ label, value, mono, statusConfig }: { label: string; value: string; mono?: boolean; statusConfig?: any }) {
+function ResponseRow({ label, value, mono, statusConfig }: { label: string; value: string; mono?: boolean; statusConfig?: { bg: string; color: string; borderColor: string; label?: string } }) {
   return (
     <div className="flex justify-between items-baseline group">
       <span className="text-[12px] text-text-tertiary font-medium">{label}</span>
@@ -110,7 +110,7 @@ function ResponseRow({ label, value, mono, statusConfig }: { label: string; valu
   );
 }
 
-function Badge({ config, fallback }: { config?: any; fallback: string }) {
+function Badge({ config, fallback }: { config?: { bg: string; color: string; borderColor: string; label?: string }; fallback: string }) {
   return (
     <span 
       className="px-2 py-1 rounded text-[11px] font-bold border uppercase"

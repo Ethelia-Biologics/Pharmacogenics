@@ -126,7 +126,7 @@ const POPULATIONS: Population[] = [
     continent: "Global",
     region: "Global",
     ethnicity_group: "Mixed",
-    haplotype_group: null as any,
+    haplotype_group: null,
     description: "Aggregated population data from gnomAD v2.1.1.",
     created_at: "2024-01-01T00:00:00Z"
   },
@@ -136,7 +136,7 @@ const POPULATIONS: Population[] = [
     continent: "Asia",
     region: "South Asia",
     ethnicity_group: "South Asian",
-    haplotype_group: null as any,
+    haplotype_group: null,
     description: "South Asian population data from gnomAD.",
     created_at: "2024-01-01T00:00:00Z"
   },
@@ -146,7 +146,7 @@ const POPULATIONS: Population[] = [
     continent: "Asia",
     region: "East Asia",
     ethnicity_group: "Asian",
-    haplotype_group: null as any,
+    haplotype_group: null,
     description: "East Asian population data from gnomAD.",
     created_at: "2024-01-01T00:00:00Z"
   },
@@ -156,7 +156,7 @@ const POPULATIONS: Population[] = [
     continent: "Africa",
     region: "Sub-Saharan Africa / Americas",
     ethnicity_group: "African",
-    haplotype_group: null as any,
+    haplotype_group: null,
     description: "African and African American population data from gnomAD.",
     created_at: "2024-01-01T00:00:00Z"
   },
@@ -166,7 +166,7 @@ const POPULATIONS: Population[] = [
     continent: "Europe",
     region: "Finland",
     ethnicity_group: "Finnish",
-    haplotype_group: null as any,
+    haplotype_group: null,
     description: "Finnish European population data from gnomAD.",
     created_at: "2024-01-01T00:00:00Z"
   },
@@ -176,7 +176,7 @@ const POPULATIONS: Population[] = [
     continent: "Europe",
     region: "Europe",
     ethnicity_group: "European",
-    haplotype_group: null as any,
+    haplotype_group: null,
     description: "Non-Finnish European population data from gnomAD.",
     created_at: "2024-01-01T00:00:00Z"
   },
@@ -186,7 +186,7 @@ const POPULATIONS: Population[] = [
     continent: "Americas",
     region: "Americas",
     ethnicity_group: "Latino",
-    haplotype_group: null as any,
+    haplotype_group: null,
     description: "Admixed American (Latino/Admixed) population data from gnomAD.",
     created_at: "2024-01-01T00:00:00Z"
   }
@@ -198,7 +198,7 @@ const SUB_POPULATIONS: SubPopulation[] = [
     population_id: "gnomad-sas",
     name: "Central/South Asian",
     geographic_area: "Central and South Asia",
-    linguistic_group: null as any,
+    linguistic_group: null,
     sample_size: 15308,
     data_source: "gnomAD",
     created_at: "2024-01-01T00:00:00Z"
@@ -208,7 +208,7 @@ const SUB_POPULATIONS: SubPopulation[] = [
     population_id: "gnomad-eas",
     name: "Japanese",
     geographic_area: "Japan",
-    linguistic_group: null as any,
+    linguistic_group: null,
     sample_size: 76,
     data_source: "gnomAD",
     created_at: "2024-01-01T00:00:00Z"
@@ -218,7 +218,7 @@ const SUB_POPULATIONS: SubPopulation[] = [
     population_id: "gnomad-eas",
     name: "Korean",
     geographic_area: "Korea",
-    linguistic_group: null as any,
+    linguistic_group: null,
     sample_size: 190,
     data_source: "gnomAD",
     created_at: "2024-01-01T00:00:00Z"
@@ -228,7 +228,7 @@ const SUB_POPULATIONS: SubPopulation[] = [
     population_id: "gnomad-nfe",
     name: "Northwestern European",
     geographic_area: "Northwest Europe",
-    linguistic_group: null as any,
+    linguistic_group: null,
     sample_size: 32297,
     data_source: "gnomAD",
     created_at: "2024-01-01T00:00:00Z"
@@ -238,7 +238,7 @@ const SUB_POPULATIONS: SubPopulation[] = [
     population_id: "gnomad-nfe",
     name: "Southern European",
     geographic_area: "South Europe",
-    linguistic_group: null as any,
+    linguistic_group: null,
     sample_size: 5556,
     data_source: "gnomAD",
     created_at: "2024-01-01T00:00:00Z"
@@ -274,7 +274,7 @@ const DRUGS: Drug[] = [
     mechanism: "EGFR inhibitor",
     atc_code: "L01FE01",
     fda_approval_status: "Approved",
-    metabolic_pathway: null as any
+    metabolic_pathway: null
   }
 ];
 
@@ -312,7 +312,7 @@ const DRUG_RESPONSES: PopulationDrugResponse[] = [
   {
     id: "RESP-001",
     population_id: "gnomad-global",
-    sub_population_id: null as any,
+    sub_population_id: null,
     drug_id: "D001",
     variant_id: "var-2d6-1",
     phenotype: "Poor Metabolizer",
@@ -327,20 +327,20 @@ const DRUG_RESPONSES: PopulationDrugResponse[] = [
 
 const FREQUENCIES: PopulationVariantFreq[] = [
   // CYP2D6 Frequencies (for var-2d6-1)
-  { id: "F-2D6-SAS", population_id: "gnomad-sas", sub_population_id: null as any, variant_id: "var-2d6-1", allele_frequency: 0.1008, minor_allele_freq: 0.1008, sample_count: 87366, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2D6-EAS", population_id: "gnomad-eas", sub_population_id: null as any, variant_id: "var-2d6-1", allele_frequency: 0.00305, minor_allele_freq: 0.00305, sample_count: 43626, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2D6-AFR", population_id: "gnomad-afr", sub_population_id: null as any, variant_id: "var-2d6-1", allele_frequency: 0.07386, minor_allele_freq: 0.07386, sample_count: 73310, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2D6-FIN", population_id: "gnomad-fin", sub_population_id: null as any, variant_id: "var-2d6-1", allele_frequency: 0.1014, minor_allele_freq: 0.1014, sample_count: 62010, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2D6-NFE", population_id: "gnomad-nfe", sub_population_id: null as any, variant_id: "var-2d6-1", allele_frequency: 0.1855, minor_allele_freq: 0.1855, sample_count: null as any, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2D6-AMR", population_id: "gnomad-amr", sub_population_id: null as any, variant_id: "var-2d6-1", allele_frequency: 0.1169, minor_allele_freq: 0.1169, sample_count: 54812, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2D6-SAS", population_id: "gnomad-sas", sub_population_id: null, variant_id: "var-2d6-1", allele_frequency: 0.1008, minor_allele_freq: 0.1008, sample_count: 87366, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2D6-EAS", population_id: "gnomad-eas", sub_population_id: null, variant_id: "var-2d6-1", allele_frequency: 0.00305, minor_allele_freq: 0.00305, sample_count: 43626, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2D6-AFR", population_id: "gnomad-afr", sub_population_id: null, variant_id: "var-2d6-1", allele_frequency: 0.07386, minor_allele_freq: 0.07386, sample_count: 73310, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2D6-FIN", population_id: "gnomad-fin", sub_population_id: null, variant_id: "var-2d6-1", allele_frequency: 0.1014, minor_allele_freq: 0.1014, sample_count: 62010, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2D6-NFE", population_id: "gnomad-nfe", sub_population_id: null, variant_id: "var-2d6-1", allele_frequency: 0.1855, minor_allele_freq: 0.1855, sample_count: null, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2D6-AMR", population_id: "gnomad-amr", sub_population_id: null, variant_id: "var-2d6-1", allele_frequency: 0.1169, minor_allele_freq: 0.1169, sample_count: 54812, data_source: "gnomAD", study_id: "ST-001" },
 
   // CYP2C19 Frequencies (for var-2c19-1)
-  { id: "F-2C19-SAS", population_id: "gnomad-sas", sub_population_id: null as any, variant_id: "var-2c19-1", allele_frequency: 0.3203, minor_allele_freq: 0.3203, sample_count: 65396, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2C19-EAS", population_id: "gnomad-eas", sub_population_id: null as any, variant_id: "var-2c19-1", allele_frequency: 0.3036, minor_allele_freq: 0.3036, sample_count: 36782, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2C19-AFR", population_id: "gnomad-afr", sub_population_id: null as any, variant_id: "var-2c19-1", allele_frequency: 0.1784, minor_allele_freq: 0.1784, sample_count: 67188, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2C19-FIN", population_id: "gnomad-fin", sub_population_id: null as any, variant_id: "var-2c19-1", allele_frequency: 0.1749, minor_allele_freq: 0.1749, sample_count: 61354, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2C19-NFE", population_id: "gnomad-nfe", sub_population_id: null as any, variant_id: "var-2c19-1", allele_frequency: 0.1462, minor_allele_freq: 0.1462, sample_count: null as any, data_source: "gnomAD", study_id: "ST-001" },
-  { id: "F-2C19-AMR", population_id: "gnomad-amr", sub_population_id: null as any, variant_id: "var-2c19-1", allele_frequency: 0.1153, minor_allele_freq: 0.1153, sample_count: 34880, data_source: "gnomAD", study_id: "ST-001" }
+  { id: "F-2C19-SAS", population_id: "gnomad-sas", sub_population_id: null, variant_id: "var-2c19-1", allele_frequency: 0.3203, minor_allele_freq: 0.3203, sample_count: 65396, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2C19-EAS", population_id: "gnomad-eas", sub_population_id: null, variant_id: "var-2c19-1", allele_frequency: 0.3036, minor_allele_freq: 0.3036, sample_count: 36782, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2C19-AFR", population_id: "gnomad-afr", sub_population_id: null, variant_id: "var-2c19-1", allele_frequency: 0.1784, minor_allele_freq: 0.1784, sample_count: 67188, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2C19-FIN", population_id: "gnomad-fin", sub_population_id: null, variant_id: "var-2c19-1", allele_frequency: 0.1749, minor_allele_freq: 0.1749, sample_count: 61354, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2C19-NFE", population_id: "gnomad-nfe", sub_population_id: null, variant_id: "var-2c19-1", allele_frequency: 0.1462, minor_allele_freq: 0.1462, sample_count: null, data_source: "gnomAD", study_id: "ST-001" },
+  { id: "F-2C19-AMR", population_id: "gnomad-amr", sub_population_id: null, variant_id: "var-2c19-1", allele_frequency: 0.1153, minor_allele_freq: 0.1153, sample_count: 34880, data_source: "gnomAD", study_id: "ST-001" }
 ];
 
 const STUDIES: Study[] = [

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Gene } from "../../types/genomics";
 import { GENE_SUGGESTIONS } from "../../lib/constants";
 import { Search, Loader2 } from "lucide-react";

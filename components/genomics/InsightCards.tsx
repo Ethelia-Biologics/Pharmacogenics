@@ -1,7 +1,7 @@
 "use client";
 
 import { Variant, Gene } from "../../types/genomics";
-import { Dna, BarChart3, Database, Globe } from "lucide-react";
+import { Dna, BarChart3, Globe } from "lucide-react";
 
 interface InsightCardsProps {
   variant: Variant | null;
@@ -10,7 +10,7 @@ interface InsightCardsProps {
   error: string | null;
 }
 
-export function InsightCards({ variant, gene, isLoading, error }: InsightCardsProps) {
+export function InsightCards({ variant, gene, isLoading }: InsightCardsProps) {
   if (isLoading) return <div className="h-64 flex items-center justify-center text-text-tertiary">Loading insights...</div>;
   if (!gene) return null;
 

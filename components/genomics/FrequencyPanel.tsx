@@ -53,7 +53,7 @@ export function FrequencyPanel({ frequency, study, isLoading, error }: Frequency
         </div>
         <div className="flex justify-between items-baseline border-b border-border-default pb-1.5">
           <span className="text-[11px] font-semibold text-text-tertiary uppercase tracking-wider">Sample Count (N)</span>
-          <span className="text-[15px] font-mono font-bold text-text-primary">{frequency.sample_count.toLocaleString()}</span>
+          <span className="text-[15px] font-mono font-bold text-text-primary">{frequency.sample_count?.toLocaleString() ?? "N/A"}</span>
         </div>
         <div className="flex justify-between items-baseline border-b border-border-default pb-1.5">
           <span className="text-[11px] font-semibold text-text-tertiary uppercase tracking-wider">Source</span>

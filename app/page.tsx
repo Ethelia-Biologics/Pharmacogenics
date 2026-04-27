@@ -9,7 +9,7 @@ import { DrugInteractionPanel } from "../components/genomics/DrugInteractionPane
 import { DrugResponsePanel } from "../components/genomics/DrugResponsePanel";
 import { InsightCards } from "../components/genomics/InsightCards";
 import { MAIN_TABS } from "../lib/constants";
-import { Dna, Info } from "lucide-react";
+import { Dna } from "lucide-react";
 
 export default function Home() {
   const {
@@ -26,7 +26,6 @@ export default function Home() {
     setSelectedPopulationId,
     setSelectedSubPopulationId,
     setSelectedVariantId,
-    populationsLoading,
     subPopulationsLoading,
     variantsLoading,
     frequency,

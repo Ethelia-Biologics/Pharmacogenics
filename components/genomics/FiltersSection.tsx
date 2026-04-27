@@ -1,7 +1,7 @@
 "use client";
 
 import { Population, SubPopulation, Variant } from "../../types/genomics";
-import { ChevronDown, Loader2, AlertCircle } from "lucide-react";
+import { ChevronDown, Loader2 } from "lucide-react";
 
 interface FiltersSectionProps {
   populations: Population[];
